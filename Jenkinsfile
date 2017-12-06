@@ -25,3 +25,10 @@ stage ('Run Unit Tests') {
 		sh 'dotnet test test/SampleApp.Api.Tests/SampleApp.Api.Tests.csproj'
 	}
 }
+
+stage ('Publish Application') {
+	node {
+		echo 'Publishing application'
+		sh 'dotnet publish src/SampleApp.Api/SampleApp.Api.csproj -c Release -o deploy
+	}
+}
