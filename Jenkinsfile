@@ -1,14 +1,18 @@
 stage('Checkout SCM') {
     node {
         echo 'Checking out SCM'
-        checkout scm
+		retry(3) {
+			checkout scm
+		}
     }
 }
 
 stage('Restore packages') {
     node {
 		echo 'Restoring packages'
-		sh 'dotnet restore'
+		retry(3) {
+			sh 'dotnet restore'
+		}
     }
 }
 
