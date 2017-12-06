@@ -26,7 +26,10 @@ stage('Build') {
 stage ('Test') {
 	node {
 		echo 'Running unit tests'
-		sh 'dotnet test test/SampleApp.Api.Tests/SampleApp.Api.Tests.csproj'
+		dir ('test/SampleAppi.Api.Tests') {
+			sh 'dotnet xunit --fx-version 2.0.0 -xml ../../test-results.xml'
+		}
+		junit 'test-results.xml'
 	}
 	milestone()
 }

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<assemblies timestamp="12/06/2017 11:50:45">
+  <assembly name="SampleApp.Api.Tests.dll" environment="64-bit .NET Standard [collection-per-class, parallel (8 threads)]" test-framework="xUnit.net 2.3.1.3858" run-date="2017-12-06" run-time="11:50:45" total="1" passed="1" failed="0" skipped="0" time="0.134" errors="0">
+    <errors />
+    <collection total="1" passed="1" failed="0" skipped="0" name="Test collection for SampleApp.Api.Tests.Controllers.HomeControllerTests" time="0.016">
+      <test name="SampleApp.Api.Tests.Controllers.HomeControllerTests.TestGet" type="SampleApp.Api.Tests.Controllers.HomeControllerTests" method="TestGet" time="0.015629" result="Pass" />
+    </collection>
+  </assembly>
+</assemblies>
