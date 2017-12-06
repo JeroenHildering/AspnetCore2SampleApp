@@ -1,3 +1,5 @@
+properties([[$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '5']]])
+
 stage('Checkout SCM') {
     node {
 		echo 'Clean workspace'
@@ -29,7 +31,7 @@ stage ('Test') {
 	milestone()
 }
 
-stage ('Publish Application') {
+stage ('Publish') {
 	node {
 		echo 'Publishing application'
 		sh 'dotnet publish src/SampleApp.Api/SampleApp.Api.csproj -c Release -o ../../deploy'
