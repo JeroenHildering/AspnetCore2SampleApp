@@ -12,7 +12,7 @@ stage('Restore packages') {
     }
 }
 
-stage('Build') {
+stage('Build Solution') {
 	node {
 		echo 'Building solution'
 		sh 'dotnet build'
