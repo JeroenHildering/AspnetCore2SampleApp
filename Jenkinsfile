@@ -1,6 +1,7 @@
 stage('Checkout SCM') {
-	deleteDir()
     node {
+		echo 'Clean workspace'
+		deleteDir()
         echo 'Checking out SCM'
 		retry(3) {
 			checkout scm
