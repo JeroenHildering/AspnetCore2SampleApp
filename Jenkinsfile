@@ -38,8 +38,8 @@ stage ('Publish Application') {
 }
 
 stage ('Deploy to Production') {
+	input message 'Deploy to production?'
 	node {
-		input message 'Deploy to production?'
 		sh 'dotnet --version'
 	}
 }
