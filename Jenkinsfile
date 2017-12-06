@@ -36,3 +36,10 @@ stage ('Publish Application') {
 		sh 'dotnet publish src/SampleApp.Api/SampleApp.Api.csproj -c Release -o deploy'
 	}
 }
+
+stage ('Deploy to Production') {
+	input message 'Deploy to production?'
+	node {
+		sh 'dotnet --version'
+	}
+}
