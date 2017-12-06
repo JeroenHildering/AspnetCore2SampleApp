@@ -17,6 +17,7 @@ stage('Restore packages') {
 }
 
 stage('Build Solution') {
+	milestone()
 	node {
 		echo 'Building solution'
 		sh 'dotnet build'
@@ -28,6 +29,7 @@ stage ('Run Unit Tests') {
 		echo 'Running unit tests'
 		sh 'dotnet test test/SampleApp.Api.Tests/SampleApp.Api.Tests.csproj'
 	}
+	milestone()
 }
 
 stage ('Publish Application') {
@@ -35,11 +37,15 @@ stage ('Publish Application') {
 		echo 'Publishing application'
 		sh 'dotnet publish src/SampleApp.Api/SampleApp.Api.csproj -c Release -o deploy'
 	}
+	milestone()
 }
 
 stage ('Deploy to Production') {
-	input message 'Deploy to production?'
-	node {
-		sh 'dotnet --version'
+	input 'Deploy to production?'
+	milestone()
+	lock('Deployment to Production') {
+		node {
+			sh 'dotnet --version'
+		}
 	}
 }
