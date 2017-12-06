@@ -1,4 +1,5 @@
 stage('Checkout SCM') {
+	deleteDir()
     node {
         echo 'Checking out SCM'
 		retry(3) {
