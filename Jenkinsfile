@@ -22,6 +22,6 @@ stage('Build') {
 stage ('Run Unit Tests') {
 	node {
 		echo 'Running unit tests'
-		sh 'dotnet test'
+		sh 'dotnet test test/SampleApp.Api.Tests/SampleApp.Api.Tests.csproj'
 	}
 }
