@@ -31,7 +31,7 @@ stage ('Publish Application') {
 	node {
 		echo 'Publishing application'
 		sh 'dotnet publish src/SampleApp.Api/SampleApp.Api.csproj -c Release -o ../../deploy'
-		archiveArtifacts artifacts: './deploy/**/*.*', fingerprint: true
+		archiveArtifacts artifacts: 'deploy/**/*.*', fingerprint: true
 	}
 	milestone()
 }
