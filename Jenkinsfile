@@ -1,6 +1,6 @@
 stage('Checkout SCM') {
     node {
-        echo "Checking out ${env.BRANCH_NAME}"
+        echo 'Checking out SCM'
         checkout scm
     }
 }
